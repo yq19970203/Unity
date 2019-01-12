@@ -15,19 +15,24 @@ public class handData : MonoBehaviour
     {
         hand = this.GetComponent<Hand>();
     }
-    //public Vector2 trackPose
-    //{
-    //    get
-    //    {
-    //        return SteamVR_Input._default.inActions.touchpadPose.GetAxis(hand.handType);
-    //    }
-    //}
+    public Vector2 trackPose
+    {
+        get
+        {
+            return SteamVR_Input._default.inActions.touchpadPose.GetAxis(hand.handType);
+        }
+    }
 
     public Vector2 getSpeed()
     {
         moveVertical = Input.GetAxis("Vertical");
         moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal,moveVertical);
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         return movement;
+    }
+
+    private void Update()
+    {
+        Debug.Log(trackPose);
     }
 }
